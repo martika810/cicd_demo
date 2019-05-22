@@ -1,0 +1,23 @@
+Problems and how to fix them
+
+PROBLEM: The html temmplates were not copied in the jar
+FIX: Adding the following in the pom.xml to indicate to maven the resources to copy:
+        <resources>
+			<resource>
+				<directory>src/main/webapp</directory>
+				<includes>
+					<include>**/*.html</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>application.properties</include>
+				</includes>
+			</resource>
+		</resources>
+
+
+PROBLEM: When running the program via 'java -jar', the view resolvers coulsn't find the templates:
+FIX: Adding the 'classpath' reference in the path:
+     templateResolver.setPrefix("classpath:/WEB-INF/views/");

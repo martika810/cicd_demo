@@ -1,0 +1,12 @@
+
+- Added one unit test loading the website from a file
+
+integration test
+
+- make an it folder under 'src'
+- make a 'java' and 'resources' folder under the 'it' folder just created
+- adding a feature file in the 'resources' folder
+- added the cucumber dependencies in the pom.xml (cucumber and selenium)
+- installed the cucumber-java plugin in intellij
+- Create the entry point for the tests, passing the folder where the features are
+    and the package where the stepdefinition code is
