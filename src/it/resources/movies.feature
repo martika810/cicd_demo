@@ -1,6 +1,9 @@
 Feature: Open movie home page
 
     Scenario: Demostrating how our page return movies
-        Given I have called the url ''
-        When I have called url ''
-        Then 20 movies were returned
+        Given I open the browser
+        Given I have opened the scrape page
+        And The inprogress message was successfully displayed
+        When I open the home page
+        Then some movies are displayed
+        Then Close the browser
