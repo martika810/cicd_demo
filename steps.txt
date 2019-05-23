@@ -14,3 +14,10 @@ iNTEGRATION TESTS
 - Write the steps with no code
 - Download the chrome web driver
 
+
+- TODO: Link the application with the tests so if running when 'integration' or test
+    phase start, first the application start and then the integration tests run with
+    local as the environment
+
+
+

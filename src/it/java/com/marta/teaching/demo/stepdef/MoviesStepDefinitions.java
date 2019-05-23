@@ -28,7 +28,7 @@ public class MoviesStepDefinitions {
         browser.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
         // Setup the request destination
-        String environment = "local";
+        String environment = System.getProperty("environment");
         if(Environment.LOCAL.getValue().equals(environment)) {
             urlWhereApplicationIsDeployed = "http://localhost:5000";
         }else {
