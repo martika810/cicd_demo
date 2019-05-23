@@ -1,6 +1,7 @@
 package com.marta.teaching.demo.stepdef;
 
 
+import com.marta.teaching.demo.domain.Environment;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -16,6 +17,9 @@ import java.util.concurrent.TimeUnit;
 public class MoviesStepDefinitions {
 
     public static WebDriver browser;
+    public String urlWhereApplicationIsDeployed = "";
+
+
 
     @Given("^I open the browser$")
     public void setupBrowser() {
@@ -23,11 +27,19 @@ public class MoviesStepDefinitions {
         browser = new ChromeDriver();
         browser.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
+        // Setup the request destination
+        String environment = "local";
+        if(Environment.LOCAL.getValue().equals(environment)) {
+            urlWhereApplicationIsDeployed = "http://localhost:5000";
+        }else {
+            urlWhereApplicationIsDeployed = "elasticbean";
+        }
+
     }
 
     @Given("^I have opened the scrape page$")
     public void openScrapePage() {
-        browser.get("http://localhost:5000/scrape");
+        browser.get(urlWhereApplicationIsDeployed + "/scrape");
     }
 
     @And("^The inprogress message was successfully displayed$")
@@ -38,7 +50,7 @@ public class MoviesStepDefinitions {
 
     @When("^I open the home page$")
     public void openHomePage() {
-        browser.get("http://localhost:5000/home");
+        browser.get(urlWhereApplicationIsDeployed + "/home");
         WebDriverWait wait = new WebDriverWait(browser, 10);
         wait.until( element -> element.findElement(By.cssSelector(".card-body")));
         // Add waiting here for the page to load
