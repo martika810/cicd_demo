@@ -15,6 +15,17 @@ iNTEGRATION TESTS
 - Download the chrome web driver
 
 
+- move the integration-test to the test folder. if you want the cucumber to be detected as integration-test then
+  the class name should end with *IT
+  NOTE: this bit show the maven phases: https://stackoverflow.com/questions/14105820/skipping-execution-of-surefire-because-it-has-already-been-run-for-this-configu
+
+
+- Adding the execution bit in the spring-maven-plugin and add it the plugin maven-failsafe-plugin, so the integration-test
+  are executed
+
+
+
+
 - TODO: Link the application with the tests so if running when 'integration' or test
     phase start, first the application start and then the integration tests run with
     local as the environment
