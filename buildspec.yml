@@ -24,6 +24,7 @@ phases:
       - echo Entered the post_build phase...
       - echo Build completed on `date`
       - echo See the current directory content
+      - pwd
       - ls -la
       - mvn clean verify -Denvironment=local
 artifacts:
