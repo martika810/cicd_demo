@@ -28,7 +28,9 @@ phases:
       - pwd
       - echo $HOME
       - ls -la
-      - mvn clean verify -Denvironment=local -Dwebdrive.file.location=./chromedriver
+      - mv ./chromedriver $HOME
+      - ls -la $HOME
+      - mvn clean verify -Denvironment=local -Dwebdrive.file.location=/root/chromedriver
 artifacts:
   files:
     - target/demo-0.0.1-SNAPSHOT.jar
