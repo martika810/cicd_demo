@@ -23,6 +23,8 @@ iNTEGRATION TESTS
 - Adding the execution bit in the spring-maven-plugin and add it the plugin maven-failsafe-plugin, so the integration-test
   are executed
 
+- Run the test with 'mven clean verify -Denvironment=local'
+
 
 
 
