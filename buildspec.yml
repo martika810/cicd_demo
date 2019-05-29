@@ -25,9 +25,10 @@ phases:
       - echo Entered the post_build phase...
       - echo Build completed on `date`
       - echo See the current directory content
+      - pwd
       - echo $HOME
       - ls -la
-      - mvn clean verify -Denvironment=local
+      - mvn clean verify -Denvironment=local -Dwebdrive.file.location=./chromedriver
 artifacts:
   files:
     - target/demo-0.0.1-SNAPSHOT.jar

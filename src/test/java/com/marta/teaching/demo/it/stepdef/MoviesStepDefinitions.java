@@ -22,7 +22,8 @@ public class MoviesStepDefinitions {
 
     @Given("^I open the browser$")
     public void setupBrowser() {
-        System.setProperty("webdriver.chrome.driver","./chromedriver");
+        String webdriverFileLocation = System.getProperty("webdrive.file.location");
+        System.setProperty("webdriver.chrome.driver", webdriverFileLocation);
         browser = new ChromeDriver();
         browser.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
