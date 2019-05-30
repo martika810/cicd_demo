@@ -14,11 +14,27 @@ import java.util.List;
 @Component
 public class MovieService {
 
+    public final static String MOVIE_PAGE_URL = "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc";
+    private List<Movie> movies = null;
+
+    public MovieService() throws IOException {
+        scrapeMoviesInformation();
+    }
+
+    public List<Movie> getMovies() {
+        return movies;
+    }
+
+    public void scrapeMoviesInformation() throws IOException {
+        Document moviePage =loadPage(MOVIE_PAGE_URL);
+        saveMovies(moviePage);
+    }
     public Document loadPage(String url) throws IOException {
         return Jsoup.connect("https://www.themoviedb.org/discover/movie?sort_by=popularity.desc").get();
     }
 
-    public List<Movie> getMovies(Document doc) throws IOException {
+
+    public void saveMovies(Document doc) throws IOException {
         List<Movie> results = new ArrayList<>();
         Elements movieCards = doc.select(".item.poster.card");
         for(int index =0;index<movieCards.size();index++) {
@@ -27,7 +43,7 @@ public class MovieService {
             results.add(movie);
         }
 
-        return results;
+        movies=results;
     }
 
     private Movie extractMovieInformation(Element movieCardHtmlElement) {

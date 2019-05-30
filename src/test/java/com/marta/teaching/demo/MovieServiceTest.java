@@ -19,11 +19,15 @@ public class MovieServiceTest {
 
     MovieService movieService = new MovieService();
 
+    public MovieServiceTest() throws IOException {
+    }
+
     @Test
     public void testGetMovies() throws IOException {
         File input = new File("src/test/templates/movie_page_test.html");
         Document movieDocument = Jsoup.parse(input,"UTF-8", "");
-        List<Movie> movies = movieService.getMovies(movieDocument);
+        movieService.saveMovies(movieDocument);
+        List<Movie> movies = movieService.getMovies();
         Assert.assertTrue(movies.size() == 20);
 
     }
