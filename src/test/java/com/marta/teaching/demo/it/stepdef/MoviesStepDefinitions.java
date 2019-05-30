@@ -26,6 +26,7 @@ public class MoviesStepDefinitions {
         String webdriverFileLocation = System.getProperty("webdrive.file.location");
         System.out.println("webdriverFileLocation="+webdriverFileLocation);
         System.setProperty("webdriver.chrome.driver", webdriverFileLocation);
+        System.out.println("After setting property");
         browser = new ChromeDriver();
         System.out.println("Created browser variable");
         browser.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
