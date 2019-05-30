@@ -22,9 +22,12 @@ public class MoviesStepDefinitions {
 
     @Given("^I open the browser$")
     public void setupBrowser() {
+        System.out.println("Before getting property");
         String webdriverFileLocation = System.getProperty("webdrive.file.location");
+        System.out.println("webdriverFileLocation="+webdriverFileLocation);
         System.setProperty("webdriver.chrome.driver", webdriverFileLocation);
         browser = new ChromeDriver();
+        System.out.println("Created browser variable");
         browser.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
         // Setup the request destination
