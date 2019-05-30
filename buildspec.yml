@@ -30,7 +30,7 @@ phases:
       - ls -la
       - mv ./chromedriver-linux $HOME
       - ls -la $HOME
-      - mvn clean verify -Denvironment=local -Dwebdrive.file.location=/root/chromedriver-linux
+      - mvn clean verify -Denvironment=local -Dwebdriver.file.location=/root/chromedriver-linux
 artifacts:
   files:
     - target/demo-0.0.1-SNAPSHOT.jar

@@ -9,6 +9,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
@@ -22,13 +23,15 @@ public class MoviesStepDefinitions {
 
     @Given("^I open the browser$")
     public void setupBrowser() {
-        System.out.println("Before getting property");
-        String webdriverFileLocation = System.getProperty("webdrive.file.location");
-        System.out.println("webdriverFileLocation="+webdriverFileLocation);
+        String webdriverFileLocation = System.getProperty("webdriver.file.location");
+
         System.setProperty("webdriver.chrome.driver", webdriverFileLocation);
-        System.out.println("After setting property");
-        browser = new ChromeDriver();
-        System.out.println("Created browser variable");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        browser = new ChromeDriver(options);
+
         browser.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
         // Setup the request destination
