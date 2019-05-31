@@ -23,13 +23,6 @@ phases:
   post_build:
     commands:
       - echo Entered the post_build phase...
-      - echo Build completed on `date`
-      - echo See the current directory content
-      - pwd
-      - echo $HOME
-      - ls -la
-      - mv ./chromedriver-linux $HOME
-      - ls -la $HOME
       - mvn clean verify -Denvironment=local
 artifacts:
   files:

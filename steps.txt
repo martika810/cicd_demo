@@ -25,6 +25,9 @@ iNTEGRATION TESTS
 
 - Run the test with 'mven clean verify -Denvironment=local'
 
+- Set up codebuild(create the application and add the buildspec in your project)
+
+-
 
 
 
