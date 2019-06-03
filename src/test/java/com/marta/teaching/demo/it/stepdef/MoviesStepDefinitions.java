@@ -1,26 +1,15 @@
 package com.marta.teaching.demo.it.stepdef;
 
 import com.marta.teaching.demo.it.domain.Environment;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import javax.lang.model.util.Elements;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 public class MoviesStepDefinitions {
 
-    public static WebDriver browser;
     public String urlWhereApplicationIsDeployed = "";
 
     @Given("^I open the browser$")

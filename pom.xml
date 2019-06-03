@@ -70,16 +70,6 @@
 
 		<!-- DEPENDENCIES CUCUMBER TESTS -->
 		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>3.7.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>3.7.0</version>
-		</dependency>
-		<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-java</artifactId>
 			<version>1.2.5</version>
@@ -139,7 +129,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
 		</plugins>
 		<!-- Including all html templates in the jar file -->
 		<resources>
